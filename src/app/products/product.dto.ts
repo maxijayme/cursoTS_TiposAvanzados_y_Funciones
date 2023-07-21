@@ -10,3 +10,5 @@ type examplePick = Pick<Product, 'color' | 'precio'>; // Pick es un utility type
 export interface UpdateProductDTO extends Partial <CreateProductDTO>{} // Partial es un utility type que deja todos los atributos como opcionales
 
 type exampleRequired = Required <Product> // Required es un utility type que hace que todas las propiedades sean obligatorias
+
+export interface FindProduct extends Readonly <Partial<Product>>{} //Readonly es un utility type que deja todos los atributos como solo lectura 'readonly'

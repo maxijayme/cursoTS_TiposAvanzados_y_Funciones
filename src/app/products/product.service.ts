@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { Product } from './product.model';
-import { CreateProductDTO, UpdateProductDTO } from './product.dto';
+import { CreateProductDTO, FindProduct, UpdateProductDTO } from './product.dto';
 import crypto from 'crypto';
 
 export const products: Product[] = [];
@@ -31,4 +31,9 @@ export const updateProduct = (id:string, changes: UpdateProductDTO):Product =>{
     createdAt: new Date()
   }
   return products[index]
+}
+
+export const findProduct = (data:FindProduct):Product[]=>{
+  const filteredProduct = products.filter( prod => prod.color === data.color);
+  return filteredProduct
 }
