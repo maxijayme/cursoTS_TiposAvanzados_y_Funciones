@@ -22,7 +22,7 @@ export const addProduct = (data: CreateProductDTO): Product => {
   return newProduct;
 }
 
-export const updateProduct = (id:string, changes: UpdateProductDTO):Product =>{
+export const updateProduct = (id:Product['id'], changes: UpdateProductDTO):Product =>{ //accedo al tipado por indice 'Product['id']'
   const index = products.findIndex(prod => prod.id === id);
   const prevData = products[index]
   products[index]={
