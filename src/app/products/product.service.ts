@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { Product } from './product.model';
-import { CreateProductDTO, FindProduct, UpdateProductDTO } from './product.dto';
+import { CreateProductDTO, FindProductDto, UpdateProductDTO } from './product.dto';
 import crypto from 'crypto';
 
 export const products: Product[] = [];
@@ -33,7 +33,9 @@ export const updateProduct = (id:Product['id'], changes: UpdateProductDTO):Produ
   return products[index]
 }
 
-export const findProduct = (data:FindProduct):Product[]=>{
+export const findProduct = (data:FindProductDto):Product[]=>{
+  //data.tags = [] // da error porque es un array solo lectura
+  //data.push(2) // da error porque es un array solo lectura
   const filteredProduct = products.filter( prod => prod.color === data.color);
   return filteredProduct
 }
