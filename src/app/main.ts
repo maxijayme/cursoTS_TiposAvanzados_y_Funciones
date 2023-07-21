@@ -1,5 +1,4 @@
-import { addProduct, products } from "./products/product.service";
-import crypto from 'crypto';
+import { addProduct, products, updateProduct } from "./products/product.service";
 import { faker } from '@faker-js/faker/locale/es';
 
 for (let index = 0; index < 50; index++) {
@@ -18,3 +17,8 @@ for (let index = 0; index < 50; index++) {
 
 
 console.log(products)
+
+updateProduct(products[0].id,{
+  stock: faker.number.int({ min: 10, max: 100 }),
+  precio: parseInt(faker.commerce.price()),
+})
